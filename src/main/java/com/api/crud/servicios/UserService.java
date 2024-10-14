@@ -25,5 +25,13 @@ public class UserService {
 	public Optional<UserModel> getById(Long id){
 		return userRepository.findById(id);
 	}
-	
+	public UserModel updateByd(UserModel request, Long id) {
+		UserModel user = userRepository.findById(id).get();
+		
+		user.setFirstName(request.getFirstName());
+		user.setLastName(request.getLastName());
+		user.setEmail(request.getEmail());
+		
+		return user;
+	}
 }
