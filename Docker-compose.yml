@@ -1,0 +1,28 @@
+
+
+services:
+  java_app:
+    container_name: java_app
+    image: pee-java_app:1.0.0
+    build: .
+    ports:
+      - 8000:8000
+    environment:
+      - DATABASE_URL=jdbc:mysql://localhost:3306/user?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true  # Aquí mantiene 3306 en el contenedor
+      - DATABASE_USERNAME=root
+      - DATABASE_PASSWORD=
+    depends_on:
+      - user
+
+
+  user:
+    container_name: user
+    image: mysql:8.0
+    ports:
+      - 3307:3306  # Aquí expone el puerto 3307 externamente, pero dentro sigue usando 3306
+    environment:
+      MYSQL_ROOT_PASSWORD:   # Asigna una contraseña aquí
+      MYSQL_DATABASE: user
+      MYSQL_USER: root
+      MYSQL_PASSWORD:
+
