@@ -5,3 +5,6 @@
 ✅SpringBoot.<br>
 ✅PostMan<br>
 ✅MsSql<br>
+
+## Create DataBase
+Create database `user`

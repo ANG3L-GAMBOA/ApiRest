@@ -6,7 +6,7 @@ services:
     image: pee-java_app:1.0.0
     build: .
     ports:
-      - 8000:8000
+      - 8080:8000
     environment:
       - DATABASE_URL=jdbc:mysql://localhost:3306/user?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true  # Aquí mantiene 3306 en el contenedor
       - DATABASE_USERNAME=root
